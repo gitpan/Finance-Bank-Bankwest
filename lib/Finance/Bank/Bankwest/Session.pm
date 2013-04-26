@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Session;
 {
-  $Finance::Bank::Bankwest::Session::VERSION = '1.0.0';
+  $Finance::Bank::Bankwest::Session::VERSION = '1.0.1';
 }
 # ABSTRACT: operate on an established Bankwest Online Banking session
 
@@ -124,7 +124,7 @@ Finance::Bank::Bankwest::Session - operate on an established Bankwest Online Ban
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.0.0.
+This module is part of distribution Finance-Bank-Bankwest v1.0.1.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
@@ -204,7 +204,7 @@ See L<Finance::Bank::Bankwest::Account> for further details on what
 information is returned per account.
 
 =head2 transactions
-L<Finance::Bank::Bankwest::Error::ExportFailed>
+
     @txns = $session->transactions(
         account     => '303-111 0012345',   # required
         from_date   => '31/01/2013',        # required
@@ -280,6 +280,10 @@ L<Finance::Bank::Bankwest/login>
 =item *
 
 L<Finance::Bank::Bankwest::Account>
+
+=item *
+
+L<Finance::Bank::Bankwest::Error::ExportFailed>
 
 =item *
 

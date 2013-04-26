@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Account;
 {
-  $Finance::Bank::Bankwest::Account::VERSION = '1.0.0';
+  $Finance::Bank::Bankwest::Account::VERSION = '1.0.1';
 }
 # ABSTRACT: representation of a Bankwest account
 
@@ -35,7 +35,7 @@ Finance::Bank::Bankwest::Account - representation of a Bankwest account
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.0.0.
+This module is part of distribution Finance-Bank-Bankwest v1.0.1.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

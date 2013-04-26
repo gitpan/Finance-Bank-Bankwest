@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest;
 {
-  $Finance::Bank::Bankwest::VERSION = '1.0.0';
+  $Finance::Bank::Bankwest::VERSION = '1.0.1';
 }
 # ABSTRACT: check Bankwest accounts from Perl
 
@@ -31,7 +31,7 @@ Finance::Bank::Bankwest - check Bankwest accounts from Perl
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.0.0.
+This module is part of distribution Finance-Bank-Bankwest v1.0.1.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
@@ -76,7 +76,7 @@ further details on what can be achieved within a session.
 The code contained in this distribution is B<not endorsed by Bankwest>
 as an official means of accessing banking data.  It is entirely written
 and provided by a third party, and B<Bankwest will not provide support>
-for this distribution if approached for it.
+for this distribution if approached for it (see L</SUPPORT>).
 
 You should audit the source code of this distribution in order to
 satisfy yourself that your banking details are only being used in a
@@ -119,39 +119,6 @@ L<Finance::Bank::Bankwest::SessionFromLogin/session>
 =back
 
 =head1 SUPPORT
-
-=head2 Websites
-
-The following websites have more information about this module, and may be of help to you. As always,
-in addition to those websites please use your favorite search engine to discover more resources.
-
-=over 4
-
-=item *
-
-MetaCPAN
-
-A modern, open-source CPAN search engine, useful to view POD in HTML format.
-
-L<http://metacpan.org/release/Finance-Bank-Bankwest>
-
-=item *
-
-RT: CPAN's Bug Tracker
-
-The RT ( Request Tracker ) website is the default bug/issue tracking system for CPAN.
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Finance-Bank-Bankwest>
-
-=item *
-
-CPAN Ratings
-
-The CPAN Ratings is a website that allows community ratings and reviews of Perl modules.
-
-L<http://cpanratings.perl.org/d/Finance-Bank-Bankwest>
-
-=back
 
 =head2 Bugs / Feature Requests
 
