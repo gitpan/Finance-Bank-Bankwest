@@ -1,5 +1,16 @@
 Revision history for Perl extension Finance-Bank-Bankwest
 
+1.1.0   2013-04-27
+
+  - Add an "equals" method and overloaded "eq" and "ne" operators to
+    Transaction objects to test for equivalence.
+
+  - Require a less recent version of Text::CSV_XS.
+
+  - Ensure that Throwable::Error is identified as a dependency.
+
+  - Stop one of the tests from emitting a warning.
+
 1.0.1   2013-04-26
 
   - Minor documentation adjustments.

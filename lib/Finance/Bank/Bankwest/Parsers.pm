@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Parsers;
 {
-  $Finance::Bank::Bankwest::Parsers::VERSION = '1.0.1';
+  $Finance::Bank::Bankwest::Parsers::VERSION = '1.1.0';
 }
 # ABSTRACT: feed HTTP responses to multiple parsers in succession
 
@@ -62,7 +62,7 @@ Finance::Bank::Bankwest::Parsers - feed HTTP responses to multiple parsers in su
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.0.1.
+This module is part of distribution Finance-Bank-Bankwest v1.1.0.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

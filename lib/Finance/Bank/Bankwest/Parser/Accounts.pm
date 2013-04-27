@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Parser::Accounts;
 {
-  $Finance::Bank::Bankwest::Parser::Accounts::VERSION = '1.0.1';
+  $Finance::Bank::Bankwest::Parser::Accounts::VERSION = '1.1.0';
 }
 # ABSTRACT: Account Balances web page parser
 
@@ -67,7 +67,7 @@ Finance::Bank::Bankwest::Parser::Accounts - Account Balances web page parser
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.0.1.
+This module is part of distribution Finance-Bank-Bankwest v1.1.0.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

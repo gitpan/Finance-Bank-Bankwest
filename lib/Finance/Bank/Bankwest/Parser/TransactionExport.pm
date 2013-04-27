@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Parser::TransactionExport;
 {
-  $Finance::Bank::Bankwest::Parser::TransactionExport::VERSION = '1.0.1';
+  $Finance::Bank::Bankwest::Parser::TransactionExport::VERSION = '1.1.0';
 }
 # ABSTRACT: transaction CSV export parser
 
@@ -12,7 +12,7 @@ class Finance::Bank::Bankwest::Parser::TransactionExport
 {
     use Finance::Bank::Bankwest::Transaction ();
     use IO::String ();
-    use Text::CSV_XS ();
+    use Text::CSV_XS 0.66 (); # for "empty_is_undef" attribute
 
     method TEST {
         $self->bad_response
@@ -23,7 +23,6 @@ class Finance::Bank::Bankwest::Parser::TransactionExport
         my $io = IO::String->new( $self->response->content_ref );
         my $csv = Text::CSV_XS->new({
             auto_diag       => 2,
-            diag_verbose    => 1,
             empty_is_undef  => 1,
         });
         $csv->column_names( $csv->getline($io) );
@@ -60,7 +59,7 @@ Finance::Bank::Bankwest::Parser::TransactionExport - transaction CSV export pars
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.0.1.
+This module is part of distribution Finance-Bank-Bankwest v1.1.0.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

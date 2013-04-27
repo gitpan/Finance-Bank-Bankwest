@@ -27,11 +27,13 @@ my %WriteMakefileArgs = (
     "MooseX::OneArgNew" => 0,
     "MooseX::StrictConstructor" => 0,
     "MooseX::Types" => 0,
-    "Text::CSV_XS" => 0,
+    "Text::CSV_XS" => "0.66",
+    "Throwable::Error" => "0.101110",
     "TryCatch" => 0,
     "URI" => 0,
     "WWW::Mechanize" => 0,
     "Web::Scraper" => 0,
+    "overload" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -48,7 +50,7 @@ my %WriteMakefileArgs = (
     "URI::file" => 0,
     "parent" => 0
   },
-  "VERSION" => "1.0.1",
+  "VERSION" => "1.1.0",
   "test" => {
     "TESTS" => "t/*.t"
   }
