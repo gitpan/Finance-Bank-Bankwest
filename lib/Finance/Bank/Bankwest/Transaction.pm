@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Transaction;
 {
-  $Finance::Bank::Bankwest::Transaction::VERSION = '1.1.0';
+  $Finance::Bank::Bankwest::Transaction::VERSION = '1.2.0';
 }
 # ABSTRACT: representation of an account transaction
 
@@ -9,7 +9,7 @@ package Finance::Bank::Bankwest::Transaction;
 use MooseX::Declare;
 class Finance::Bank::Bankwest::Transaction is dirty {
 
-    use MooseX::StrictConstructor;
+    use MooseX::StrictConstructor; #no exports
 
     for (
         [ date          => 'Str'        ],
@@ -18,7 +18,25 @@ class Finance::Bank::Bankwest::Transaction is dirty {
         [ amount        => 'Maybe[Num]' ],
         [ type          => 'Str'        ],
     ) {
-        has $_->[0] => ( isa => $_->[1], is => 'ro', required => 1 );
+        my ($attr, $type) = @$_;
+        has $attr => ( isa => $type, is => 'ro', required => 1 );
+    }
+
+    has 'date_dt' => (
+        init_arg    => undef,
+        isa         => 'DateTime',
+        is          => 'ro',
+        lazy_build  => 1,
+    );
+    method _build_date_dt {
+        require DateTime;
+        my ($dd, $mm, $yyyy)
+            = shift->date =~ m( ^ (\d\d) / (\d\d) / (\d\d\d\d) $ )x;
+        return DateTime->new(
+            day     => $dd,
+            month   => $mm,
+            year    => $yyyy,
+        );
     }
 
 
@@ -50,13 +68,14 @@ Finance::Bank::Bankwest::Transaction - representation of an account transaction
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.1.0.
+This module is part of distribution Finance-Bank-Bankwest v1.2.0.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
 =head1 SYNOPSIS
 
     $transaction->date;         # '31/12/2012'
+    $transaction->date_dt;      # a DateTime instance
     $transaction->narrative;    # '1 BANK CHEQUE FEE - BWA CUSTOMER'
     $transaction->cheque_num;   # undef
     $transaction->amount;       # -10.00
@@ -77,6 +96,14 @@ L<Finance::Bank::Bankwest::Session/transactions>.
 
 A string in C<DD/MM/YYYY> format representing the date of the
 transaction.
+
+=head2 date_dt
+
+The L</date> as a L<DateTime> instance with a floating time zone.
+
+I<require>-s the DateTime module when used.  C<use DateTime> in any
+code that relies on this attribute to prevent runtime failures caused
+by the DateTime module not being installed.
 
 =head2 narrative
 

@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Parsers;
 {
-  $Finance::Bank::Bankwest::Parsers::VERSION = '1.1.0';
+  $Finance::Bank::Bankwest::Parsers::VERSION = '1.2.0';
 }
 # ABSTRACT: feed HTTP responses to multiple parsers in succession
 
@@ -11,7 +11,7 @@ class Finance::Bank::Bankwest::Parsers {
 
     use Finance::Bank::Bankwest::Error::BadResponse ();
     use Module::Pluggable::Object ();
-    use MooseX::StrictConstructor;
+    use MooseX::StrictConstructor; # no exports
     use TryCatch; # for "try" and "catch"
 
     my $module_base = 'Finance::Bank::Bankwest::Parser';
@@ -62,7 +62,7 @@ Finance::Bank::Bankwest::Parsers - feed HTTP responses to multiple parsers in su
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.1.0.
+This module is part of distribution Finance-Bank-Bankwest v1.2.0.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

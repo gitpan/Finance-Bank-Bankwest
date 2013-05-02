@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Session;
 {
-  $Finance::Bank::Bankwest::Session::VERSION = '1.1.0';
+  $Finance::Bank::Bankwest::Session::VERSION = '1.2.0';
 }
 # ABSTRACT: operate on an established Bankwest Online Banking session
 
@@ -10,7 +10,7 @@ use MooseX::Declare;
 class Finance::Bank::Bankwest::Session {
 
     use Finance::Bank::Bankwest::Parsers ();
-    use MooseX::StrictConstructor;
+    use MooseX::StrictConstructor; # no exports
     use MooseX::Types; # for "class_type"
     use TryCatch; # for "try" and "catch"
     use URI ();
@@ -21,6 +21,13 @@ class Finance::Bank::Bankwest::Session {
         type        => 'WWW::Mechanize',
         init_arg    => 'mech',
     };
+
+
+    has 'mech' => (
+        is          => 'ro',
+        isa         => 'WWW::Mechanize',
+        required    => 1,
+    );
 
 
     for (
@@ -41,13 +48,6 @@ class Finance::Bank::Bankwest::Session {
             default     => sub { URI->new($uri) },
         );
     }
-
-
-    has 'mech' => (
-        is          => 'ro',
-        isa         => 'WWW::Mechanize',
-        required    => 1,
-    );
 
 
     method accounts {
@@ -124,7 +124,7 @@ Finance::Bank::Bankwest::Session - operate on an established Bankwest Online Ban
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.1.0.
+This module is part of distribution Finance-Bank-Bankwest v1.2.0.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
@@ -166,6 +166,13 @@ established session using L<Finance::Bank::Bankwest/login>.
 
 =head1 ATTRIBUTES
 
+=head2 mech
+
+The L<WWW::Mechanize> instance used to communicate with the Bankwest
+Online Banking server.  Needs to be pre-populated with the correct
+cookies.  Required; use L<Finance::Bank::Bankwest/login> to obtain a
+session object with the right one of these.
+
 =head2 accounts_uri
 
 The location of the page holding a list of accounts and their balances.
@@ -181,13 +188,6 @@ Use the default value during normal operation.
 The location of the resource that closes the Bankwest Online Banking
 session on the remote server.  Use the default value during normal
 operation.
-
-=head2 mech
-
-The L<WWW::Mechanize> instance used to communicate with the Bankwest
-Online Banking server.  Needs to be pre-populated with the correct
-cookies.  Required; use L<Finance::Bank::Bankwest/login> to obtain a
-session object with the right one of these.
 
 =head1 METHODS
 

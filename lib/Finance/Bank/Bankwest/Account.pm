@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Account;
 {
-  $Finance::Bank::Bankwest::Account::VERSION = '1.1.0';
+  $Finance::Bank::Bankwest::Account::VERSION = '1.2.0';
 }
 # ABSTRACT: representation of a Bankwest account
 
@@ -9,7 +9,7 @@ package Finance::Bank::Bankwest::Account;
 use MooseX::Declare;
 class Finance::Bank::Bankwest::Account {
 
-    use MooseX::StrictConstructor;
+    use MooseX::StrictConstructor; # no exports
 
     for (
         [ name              => 'Str' ],
@@ -35,7 +35,7 @@ Finance::Bank::Bankwest::Account - representation of a Bankwest account
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.1.0.
+This module is part of distribution Finance-Bank-Bankwest v1.2.0.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

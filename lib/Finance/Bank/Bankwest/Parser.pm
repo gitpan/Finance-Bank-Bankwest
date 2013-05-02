@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Parser;
 {
-  $Finance::Bank::Bankwest::Parser::VERSION = '1.1.0';
+  $Finance::Bank::Bankwest::Parser::VERSION = '1.2.0';
 }
 # ABSTRACT: Bankwest Online Banking response parser superclass
 
@@ -11,7 +11,7 @@ class Finance::Bank::Bankwest::Parser {
 
     use Carp 'croak';
     use Finance::Bank::Bankwest::Error::BadResponse ();
-    use MooseX::StrictConstructor;
+    use MooseX::StrictConstructor; # no exports
     use MooseX::Types; # for "class_type"
 
     # Allow instantiation via ->new($http_response).
@@ -65,7 +65,7 @@ Finance::Bank::Bankwest::Parser - Bankwest Online Banking response parser superc
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.1.0.
+This module is part of distribution Finance-Bank-Bankwest v1.2.0.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
