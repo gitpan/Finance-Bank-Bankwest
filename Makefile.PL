@@ -20,7 +20,6 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Finance::Bank::Bankwest",
   "PREREQ_PM" => {
-    "Carp" => 0,
     "IO::String" => 0,
     "Module::Pluggable::Object" => 0,
     "MooseX::Declare" => 0,
@@ -30,27 +29,20 @@ my %WriteMakefileArgs = (
     "Text::CSV_XS" => "0.66",
     "Throwable::Error" => "0.101110",
     "TryCatch" => 0,
-    "URI" => 0,
     "WWW::Mechanize" => 0,
-    "Web::Scraper" => 0,
-    "overload" => 0,
-    "strict" => 0,
-    "warnings" => 0
+    "Web::Scraper" => 0
   },
   "TEST_REQUIRES" => {
-    "File::Find" => 0,
     "File::Temp" => 0,
     "HTTP::Response" => 0,
-    "Path::Class" => 0,
     "Scalar::Util" => 0,
     "Test::Exception" => 0,
     "Test::More" => 0,
     "Test::Routine" => 0,
-    "Test::Routine::Util" => 0,
     "URI::file" => 0,
     "parent" => 0
   },
-  "VERSION" => "1.2.0",
+  "VERSION" => "1.2.1",
   "test" => {
     "TESTS" => "t/*.t"
   }

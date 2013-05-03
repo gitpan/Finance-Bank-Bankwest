@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Session;
 {
-  $Finance::Bank::Bankwest::Session::VERSION = '1.2.0';
+  $Finance::Bank::Bankwest::Session::VERSION = '1.2.1';
 }
 # ABSTRACT: operate on an established Bankwest Online Banking session
 
@@ -13,7 +13,6 @@ class Finance::Bank::Bankwest::Session {
     use MooseX::StrictConstructor; # no exports
     use MooseX::Types; # for "class_type"
     use TryCatch; # for "try" and "catch"
-    use URI ();
 
     # Allow instantiation via ->new($mech).
     class_type 'WWW::Mechanize';
@@ -42,10 +41,8 @@ class Finance::Bank::Bankwest::Session {
         );
         has "${attr}_uri" => (
             is          => 'ro',
-            isa         => 'URI',
-            required    => 1,
-            lazy        => 1,
-            default     => sub { URI->new($uri) },
+            isa         => 'Str',
+            default     => $uri,
         );
     }
 
@@ -124,7 +121,7 @@ Finance::Bank::Bankwest::Session - operate on an established Bankwest Online Ban
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.2.0.
+This module is part of distribution Finance-Bank-Bankwest v1.2.1.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::SessionFromLogin;
 {
-  $Finance::Bank::Bankwest::SessionFromLogin::VERSION = '1.2.0';
+  $Finance::Bank::Bankwest::SessionFromLogin::VERSION = '1.2.1';
 }
 # ABSTRACT: create a session using a PAN and access code
 
@@ -12,7 +12,6 @@ class Finance::Bank::Bankwest::SessionFromLogin {
     use Finance::Bank::Bankwest::Parsers ();
     use Finance::Bank::Bankwest::Session ();
     use MooseX::StrictConstructor; # no exports
-    use URI ();
     use TryCatch; # for "try" and "catch"
     use WWW::Mechanize ();
 
@@ -75,13 +74,10 @@ class Finance::Bank::Bankwest::SessionFromLogin {
     }
 
 
-    my $login_uri = 'https://ibs.bankwest.com.au/BWLogin/rib.aspx';
     has 'login_uri' => (
         is          => 'ro',
-        isa         => 'URI',
-        required    => 1,
-        lazy        => 1,
-        default     => sub { URI->new( $login_uri ) },
+        isa         => 'Str',
+        default     => 'https://ibs.bankwest.com.au/BWLogin/rib.aspx',
     );
 }
 
@@ -97,7 +93,7 @@ Finance::Bank::Bankwest::SessionFromLogin - create a session using a PAN and acc
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.2.0.
+This module is part of distribution Finance-Bank-Bankwest v1.2.1.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
