@@ -43,7 +43,7 @@ my %WriteMakefileArgs = (
     "URI::file" => 0,
     "parent" => 0
   },
-  "VERSION" => "1.2.4",
+  "VERSION" => "1.2.5",
   "test" => {
     "TESTS" => "t/*.t"
   }
