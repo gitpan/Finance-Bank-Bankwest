@@ -1,9 +1,6 @@
 package Finance::Bank::Bankwest::Transaction;
-{
-  $Finance::Bank::Bankwest::Transaction::VERSION = '1.2.5';
-}
 # ABSTRACT: representation of an account transaction
-
+$Finance::Bank::Bankwest::Transaction::VERSION = '1.2.6';
 
 ## no critic (RequireUseStrict, RequireUseWarnings, RequireEndWithOne)
 use MooseX::Declare;
@@ -16,7 +13,7 @@ class Finance::Bank::Bankwest::Transaction is dirty {
         [ narrative     => 'Str'        ],
         [ cheque_num    => 'Maybe[Str]' ],
         [ amount        => 'Maybe[Num]' ],
-        [ type          => 'Str'        ],
+        [ type          => 'Maybe[Str]' ],
     ) {
         my ($attr, $type) = @$_;
         has $attr => ( isa => $type, is => 'ro', required => 1 );
@@ -68,7 +65,7 @@ Finance::Bank::Bankwest::Transaction - representation of an account transaction
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.2.5.
+This module is part of distribution Finance-Bank-Bankwest v1.2.6.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
@@ -99,6 +96,8 @@ transaction.
 
 =head2 date_dt
 
+I<Added in v1.2.0.>
+
 The L</date> as a L<DateTime> instance with a floating time zone.
 
 I<require>-s the DateTime module when used.  C<use DateTime> in any
@@ -121,9 +120,12 @@ for fee notices or declined transactions).
 
 =head2 type
 
-The transaction "type."  May be one of the following values (although
-Bankwest may not always assign the most relevant code to a particular
-transaction):
+The transaction "type."  Defined for every transaction in savings
+accounts (e.g. Zero Transaction).  Not defined for every transaction in
+credit card accounts.
+
+If defined, may be one of the following values (although Bankwest may
+not always assign the most relevant code to a particular transaction):
 
 =over 6
 
@@ -141,7 +143,7 @@ I<ATM deposit>
 
 =item DAU
 
-I<debit authorisation>
+I<debit authorisation> (i.e. "Authorisation Only" transactions)
 
 =item DEC
 
@@ -244,6 +246,8 @@ withdrawals)
 
 =head2 equals
 
+I<Added in v1.1.0.>
+
     if ($this_txn->equals($other_txn)) {
         # $this_txn and $other_txn represent the exact same transaction
         ...
@@ -283,12 +287,12 @@ Alex Peters <lxp@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Alex Peters.
+This software is copyright (c) 2014 by Alex Peters.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 The full text of the license can be found in the
-'LICENSE' file included with this distribution.
+F<LICENSE> file included with this distribution.
 
 =cut

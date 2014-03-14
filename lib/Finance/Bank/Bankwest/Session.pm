@@ -1,9 +1,6 @@
 package Finance::Bank::Bankwest::Session;
-{
-  $Finance::Bank::Bankwest::Session::VERSION = '1.2.5';
-}
 # ABSTRACT: operate on an established Bankwest Online Banking session
-
+$Finance::Bank::Bankwest::Session::VERSION = '1.2.6';
 
 ## no critic (RequireUseStrict, RequireUseWarnings, RequireEndWithOne)
 use MooseX::Declare;
@@ -121,7 +118,7 @@ Finance::Bank::Bankwest::Session - operate on an established Bankwest Online Ban
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.2.5.
+This module is part of distribution Finance-Bank-Bankwest v1.2.6.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
@@ -219,10 +216,13 @@ The following arguments are accepted:
 =item C<account>
 
     account => '303-111 0012345'
+    account => '5500 0000 0000 0004'
 
-The BSB and account numbers of a single account to which all returned
-transaction details belong.  Must be in C<BBB-BBB AAAAAAA> format where
-C<B> refers to a BSB digit and C<A> refers to an account digit.
+The full account number of a single account to which all returned
+transaction details belong.  Must be in the same format as the
+L<"number"|Finance::Bank::Bankwest::Account/number> attribute of the
+L<Account|Finance::Bank::Bankwest::Account> objects returned by
+L</accounts>.
 
 =item C<from_date>
 
@@ -294,12 +294,12 @@ Alex Peters <lxp@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Alex Peters.
+This software is copyright (c) 2014 by Alex Peters.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 The full text of the license can be found in the
-'LICENSE' file included with this distribution.
+F<LICENSE> file included with this distribution.
 
 =cut
