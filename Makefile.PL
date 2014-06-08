@@ -40,10 +40,10 @@ my %WriteMakefileArgs = (
     "Test::Exception" => 0,
     "Test::More" => 0,
     "Test::Routine" => 0,
-    "URI::file" => 0,
+    "URI::file" => "4.21",
     "parent" => 0
   },
-  "VERSION" => "1.2.6",
+  "VERSION" => "1.2.7",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -66,7 +66,7 @@ my %FallbackPrereqs = (
   "Text::CSV_XS" => "0.66",
   "Throwable::Error" => "0.101110",
   "TryCatch" => 0,
-  "URI::file" => 0,
+  "URI::file" => "4.21",
   "WWW::Mechanize" => 0,
   "Web::Scraper" => 0,
   "parent" => 0

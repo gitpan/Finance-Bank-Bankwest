@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::SessionFromLogin;
 # ABSTRACT: create a session using a PAN and access code
-$Finance::Bank::Bankwest::SessionFromLogin::VERSION = '1.2.6';
+$Finance::Bank::Bankwest::SessionFromLogin::VERSION = '1.2.7';
 
 ## no critic (RequireUseStrict, RequireUseWarnings, RequireEndWithOne)
 use MooseX::Declare;
@@ -87,7 +87,7 @@ Finance::Bank::Bankwest::SessionFromLogin - create a session using a PAN and acc
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.2.6.
+This module is part of distribution Finance-Bank-Bankwest v1.2.7.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

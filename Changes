@@ -1,5 +1,11 @@
 Revision history for Perl extension Finance-Bank-Bankwest
 
+1.2.7   2014-06-08
+
+  - Specify a minimum URI::file version, since earlier versions trigger
+    test failures ([rt.cpan.org #96324]).  Thanks to David Cantrell for
+    reporting this problem.
+
 1.2.6   2014-03-14
 
   - Allow an undefined transaction code in Transaction objects, since

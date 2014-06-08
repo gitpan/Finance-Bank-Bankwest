@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Parsers;
 # ABSTRACT: feed HTTP responses to multiple parsers in succession
-$Finance::Bank::Bankwest::Parsers::VERSION = '1.2.6';
+$Finance::Bank::Bankwest::Parsers::VERSION = '1.2.7';
 
 ## no critic (RequireUseStrict, RequireUseWarnings, RequireFinalReturn)
 use MooseX::Declare;
@@ -28,7 +28,7 @@ Finance::Bank::Bankwest::Parsers - feed HTTP responses to multiple parsers in su
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.2.6.
+This module is part of distribution Finance-Bank-Bankwest v1.2.7.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
