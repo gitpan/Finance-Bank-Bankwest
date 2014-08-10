@@ -19,10 +19,12 @@ lib/Finance/Bank/Bankwest/Error/NotLoggedIn/BadCredentials.pm
 lib/Finance/Bank/Bankwest/Error/NotLoggedIn/SubsequentLogin.pm
 lib/Finance/Bank/Bankwest/Error/NotLoggedIn/Timeout.pm
 lib/Finance/Bank/Bankwest/Error/NotLoggedIn/UnknownReason.pm
+lib/Finance/Bank/Bankwest/Error/ServiceMessage.pm
 lib/Finance/Bank/Bankwest/Error/WithResponse.pm
 lib/Finance/Bank/Bankwest/Parser/Accounts.pm
 lib/Finance/Bank/Bankwest/Parser/Login.pm
 lib/Finance/Bank/Bankwest/Parser/Logout.pm
+lib/Finance/Bank/Bankwest/Parser/ServiceMessage.pm
 lib/Finance/Bank/Bankwest/Parser/TransactionExport.pm
 lib/Finance/Bank/Bankwest/Parser/TransactionSearch.pm
 lib/Finance/Bank/Bankwest/Parsers.pm
@@ -45,6 +47,7 @@ t/Bankwest-Error.t
 t/Bankwest-Parser-Accounts.t
 t/Bankwest-Parser-Login.t
 t/Bankwest-Parser-Logout.t
+t/Bankwest-Parser-ServiceMessage.t
 t/Bankwest-Parser-TransactionExport.t
 t/Bankwest-Parser-TransactionSearch.t
 t/Bankwest-Parsers.t
@@ -64,8 +67,10 @@ t/fixtures/login-subsequent-login.html
 t/fixtures/login-then-acct-balances.html
 t/fixtures/login-then-bad-credentials.html
 t/fixtures/login-then-no-credentials.html
+t/fixtures/login-then-service-message.html
 t/fixtures/login-timeout.html
 t/fixtures/login.html
+t/fixtures/service-message.html
 t/fixtures/txn-export.csv
 t/fixtures/txn-search-bad-acct-from-date-to-date.html
 t/fixtures/txn-search-bad-acct.html

@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::SessionFromLogin;
 # ABSTRACT: create a session using a PAN and access code
-$Finance::Bank::Bankwest::SessionFromLogin::VERSION = '1.2.7';
+$Finance::Bank::Bankwest::SessionFromLogin::VERSION = '1.2.8';
 
 ## no critic (RequireUseStrict, RequireUseWarnings, RequireEndWithOne)
 use MooseX::Declare;
@@ -59,9 +59,22 @@ class Finance::Bank::Bankwest::SessionFromLogin {
             },
         );
 
-        # Does the result look like an Account Balances page?
-        # If not, determine and throw the appropriate exception.
-        Finance::Bank::Bankwest::Parsers->handle($ua->res, 'Accounts');
+        # In most cases the Account Balances page will be returned.
+        # Handle the occasional "service message" popping up first, but
+        # let any other exception be determined and propagated.
+        try {
+            Finance::Bank::Bankwest::Parsers->handle(
+                $ua->res,
+                qw{ Accounts ServiceMessage },
+            );
+        }
+        catch (Finance::Bank::Bankwest::Error::ServiceMessage $e) {
+            $ua->click('btnStartBanking');
+            Finance::Bank::Bankwest::Parsers->handle(
+                $ua->res,
+                qw{ Accounts },
+            );
+        }
 
         # If this point is reached, the session is established.
         return Finance::Bank::Bankwest::Session->new( $ua );
@@ -87,7 +100,7 @@ Finance::Bank::Bankwest::SessionFromLogin - create a session using a PAN and acc
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.2.7.
+This module is part of distribution Finance-Bank-Bankwest v1.2.8.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

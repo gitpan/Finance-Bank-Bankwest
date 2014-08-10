@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest::Parser::Logout;
 # ABSTRACT: Online Banking logout web page parser
-$Finance::Bank::Bankwest::Parser::Logout::VERSION = '1.2.7';
+$Finance::Bank::Bankwest::Parser::Logout::VERSION = '1.2.8';
 
 ## no critic (RequireUseStrict, RequireUseWarnings, RequireEndWithOne)
 use MooseX::Declare;
@@ -35,7 +35,7 @@ Finance::Bank::Bankwest::Parser::Logout - Online Banking logout web page parser
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.2.7.
+This module is part of distribution Finance-Bank-Bankwest v1.2.8.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 

@@ -4,7 +4,7 @@ use warnings;
 
 # this test was generated with Dist::Zilla::Plugin::Test::Compile 2.039
 
-use Test::More  tests => 21 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+use Test::More  tests => 23 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
@@ -20,10 +20,12 @@ my @module_files = (
     'Finance/Bank/Bankwest/Error/NotLoggedIn/SubsequentLogin.pm',
     'Finance/Bank/Bankwest/Error/NotLoggedIn/Timeout.pm',
     'Finance/Bank/Bankwest/Error/NotLoggedIn/UnknownReason.pm',
+    'Finance/Bank/Bankwest/Error/ServiceMessage.pm',
     'Finance/Bank/Bankwest/Error/WithResponse.pm',
     'Finance/Bank/Bankwest/Parser/Accounts.pm',
     'Finance/Bank/Bankwest/Parser/Login.pm',
     'Finance/Bank/Bankwest/Parser/Logout.pm',
+    'Finance/Bank/Bankwest/Parser/ServiceMessage.pm',
     'Finance/Bank/Bankwest/Parser/TransactionExport.pm',
     'Finance/Bank/Bankwest/Parser/TransactionSearch.pm',
     'Finance/Bank/Bankwest/Parsers.pm',

@@ -1,6 +1,6 @@
 package Finance::Bank::Bankwest;
 # ABSTRACT: check Bankwest accounts from Perl
-$Finance::Bank::Bankwest::VERSION = '1.2.7';
+$Finance::Bank::Bankwest::VERSION = '1.2.8';
 
 use strict;
 use warnings;
@@ -28,7 +28,7 @@ Finance::Bank::Bankwest - check Bankwest accounts from Perl
 
 =head1 VERSION
 
-This module is part of distribution Finance-Bank-Bankwest v1.2.7.
+This module is part of distribution Finance-Bank-Bankwest v1.2.8.
 
 This distribution's version numbering follows the conventions defined at L<semver.org|http://semver.org/>.
 
